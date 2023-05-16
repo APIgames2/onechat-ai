@@ -1,0 +1,119 @@
+{
+  "project_info": {
+    "project_number": "386791733630",
+    "firebase_url": "https://onechat-8d01d-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "onechat-8d01d",
+    "storage_bucket": "onechat-8d01d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386791733630:android:c6448662406c617e705b2f",
+        "android_client_info": {
+          "package_name": "com.example.onechat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386791733630-lbknm24rr6cob9lapgvaju2om5end8j3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl7szAlNxG2QVWGhHuHK5KEIykznthyqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386791733630-lbknm24rr6cob9lapgvaju2om5end8j3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "386791733630-2uk2ge7hbn8dg6stkkhm7icsloeh163g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.test"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386791733630:android:28ae2e6c05a31c8e705b2f",
+        "android_client_info": {
+          "package_name": "com.example.onechat_security"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386791733630-lbknm24rr6cob9lapgvaju2om5end8j3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl7szAlNxG2QVWGhHuHK5KEIykznthyqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386791733630-lbknm24rr6cob9lapgvaju2om5end8j3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "386791733630-2uk2ge7hbn8dg6stkkhm7icsloeh163g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.test"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386791733630:android:77c5224a3625af71705b2f",
+        "android_client_info": {
+          "package_name": "com.example.onechatai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386791733630-lbknm24rr6cob9lapgvaju2om5end8j3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl7szAlNxG2QVWGhHuHK5KEIykznthyqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386791733630-lbknm24rr6cob9lapgvaju2om5end8j3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "386791733630-2uk2ge7hbn8dg6stkkhm7icsloeh163g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.test"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

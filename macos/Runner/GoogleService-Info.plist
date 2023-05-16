@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>386791733630-de2q03o33dlor3ajs60m6k345j87jkvc.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.386791733630-de2q03o33dlor3ajs60m6k345j87jkvc</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDOR6E7H0yyc4qA0vgPMpX_k-L3mBgsyyE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>386791733630</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.onechatai</string>
+	<key>PROJECT_ID</key>
+	<string>onechat-8d01d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>onechat-8d01d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:386791733630:ios:62fce91665bab3bd705b2f</string>
+	<key>DATABASE_URL</key>
+	<string>https://onechat-8d01d-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>
