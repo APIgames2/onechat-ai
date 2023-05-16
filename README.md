@@ -2,7 +2,7 @@
 
 ## It is a new chat app
 
-In this app you can talk with chat-gpt
+In this app you can talk with your friends and chat-gpt
 
 # What is Chat-gpt ?
 

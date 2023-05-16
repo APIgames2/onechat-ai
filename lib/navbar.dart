@@ -24,7 +24,7 @@ class _NavbarState extends State<Navbar> {
             child: Text(
               "Onechat",
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           )),

@@ -6,6 +6,7 @@ Future<void> asyncapp() async {
       .ref("message/groupes/0/message")
       .onValue
       .listen((event) {
+    print("hello");
     getmessage();
   });
 }
