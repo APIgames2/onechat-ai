@@ -1,17 +1,15 @@
 # onechatai
 
-A new Flutter project.
+## It is a new chat app
 
-## Getting Started
+## You can talk with chat-gpt
 
-This project is a starting point for a Flutter application.
+# What is Chat-gpt ?
 
-A few resources to get you started if this is your first Flutter project:
+## Chat-gpt is an ai who can answer anything
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## In this app you send 3 messages by day
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# onechat-ai
+## With the pro version you can send 50 messages by day
+
+## the pro version cost 2,99 $
