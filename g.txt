@@ -1,0 +1,27 @@
+Flex(
+                  direction: Axis.horizontal,
+                  children: [
+                    Flexible(
+                      flex: 9,
+                      child: FractionallySizedBox(
+                        widthFactor: 1,
+                        child: 
+                      ),
+                    ),
+                    Flexible(
+                      flex: 1,
+                      child: FractionallySizedBox(
+                        widthFactor: 1,
+                        child: Container(
+                            child: Center(
+                          child: IconButton(
+                            icon: const Icon(Icons.delete_rounded),
+                            onPressed:() {
+                              
+                            },
+                          ),
+                        )),
+                      ),
+                    ),
+                  ],
+                );

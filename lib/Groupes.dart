@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'fonctions/getmessage.dart';
 import 'chat.dart';
+import 'package:uuid/uuid.dart';
 
 var namegroupe = '';
 
@@ -15,6 +16,8 @@ var namegroupes = [];
 var descrgroupes = [];
 
 var numberofgroupes = 0;
+
+var delete = false;
 
 class Message {
   final String content;
@@ -82,6 +85,7 @@ class _GroupesState extends State<Groupes> {
                   FilledButton.tonal(
                     child: const Text("edit"),
                     onPressed: () {
+                      
                     },
                   ),
                   Expanded(
@@ -97,11 +101,11 @@ class _GroupesState extends State<Groupes> {
                   )
                 ],
               )),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(7, 0, 7, 0),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(7, 0, 7, 0),
             child: Row(
               children: [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.fromLTRB(0, 15, 0, 7),
                   child: Text(
                     "Messages",
@@ -140,36 +144,72 @@ class _GroupesState extends State<Groupes> {
             itemCount: numberofgroupes,
             itemBuilder: (context, index) {
               if (namegroupes.isEmpty && descrgroupes.isEmpty) {
-                return Center(
+                return const Center(
                   child: CupertinoActivityIndicator(),
                 );
               } else {
-                return Column(
+                return Flex(
+                  direction: Axis.horizontal,
                   children: [
-                    CupertinoListTile(
-                      
-                      leading: ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: Image.network(
-                            "https://dub06pap001files.storage.live.com/y4mcC2WwcFDlfFyTreLvoRsh7v2UX84U49jXgttwaxeYVGwRNVToKysA_etSuJVvShu8TsEqA9tnMm-DMsfmF2cgQCAGvX48fXN9okClUWhCboCO5OWz3uLYuqmbnxCcqo89QtE98-M1sRABQ7p37cHG7ADhhbrUuuuUtfiAGvThPgDgvlTcjluKviREXWKMRi9?width=1000&height=1000&cropmode=none"),
-                      ),
-                      title: Text(namegroupes[index]),
-                      subtitle: Text(descrgroupes[index]),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.arrow_forward_ios, size: 15),
-                        onPressed: () {
-                          print(index);
-                          Navigator.push(context, MaterialPageRoute<void>(
-                              builder: (BuildContext context) {
-                            return Chat(
-                              mode: 1,
-                              index: index,
-                            );
-                          }));
-                        },
+                    Visibility(
+                      visible: delete ? true : false,
+                      child: Flexible(
+                        flex: 1,
+                        child: FractionallySizedBox(
+                          widthFactor: 1,
+                          child: Container(
+                              child: Center(
+                            child: IconButton(
+                              icon: const Icon(Icons.delete_rounded),
+                              color: Colors.red,
+                              onPressed: () {
+                                final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
+                                databaseReference.child('message').child("groupes").child("$index").remove().then((_) {
+                                  print('Données supprimées avec succès.');
+                                }).catchError((error) {
+                                  print('Erreur lors de la suppression des données : $error');
+                                });
+
+                              },
+                            ),
+                          )),
+                        ),
                       ),
                     ),
-                    const Divider()
+                    Flexible(
+                      flex: 9,
+                      child: FractionallySizedBox(
+                        widthFactor: 1,
+                        child: Column(
+                          children: [
+                            CupertinoListTile(
+                              leading: ClipRRect(
+                                borderRadius: BorderRadius.circular(100),
+                                child: Image.network(
+                                    "https://dub06pap001files.storage.live.com/y4mcC2WwcFDlfFyTreLvoRsh7v2UX84U49jXgttwaxeYVGwRNVToKysA_etSuJVvShu8TsEqA9tnMm-DMsfmF2cgQCAGvX48fXN9okClUWhCboCO5OWz3uLYuqmbnxCcqo89QtE98-M1sRABQ7p37cHG7ADhhbrUuuuUtfiAGvThPgDgvlTcjluKviREXWKMRi9?width=1000&height=1000&cropmode=none"),
+                              ),
+                              title: Text(namegroupes[index]),
+                              subtitle: Text(descrgroupes[index]),
+                              trailing: IconButton(
+                                icon: const Icon(Icons.arrow_forward_ios,
+                                    size: 15),
+                                onPressed: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute<void>(
+                                          builder: (BuildContext context) {
+                                    return Chat(
+                                      mode: 1,
+                                      index: index,
+                                    );
+                                  }));
+                                },
+                              ),
+                            ),
+                            const Divider()
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 );
               }
@@ -277,11 +317,8 @@ Future<void> createagroupe(name) async {
     "$groupe": {
       "name": namegroupe,
       "description": descriptiongroupe,
-      "messages" : {
-        0 : {
-          "userid" : 0,
-          "name" : "Weclome to $name"
-        }
+      "messages": {
+        0: {"userid": 0, "name": "Weclome to $name"}
       }
     }
   });

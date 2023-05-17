@@ -26,7 +26,7 @@ class _ContactsState extends State<Contacts> {
               itemCount: contactlist.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onLongPress: () {
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
