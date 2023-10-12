@@ -70,112 +70,225 @@ class _GroupesState extends State<Groupes> {
     }
 
     asyncapp();
-    return Container(
-      padding: const EdgeInsets.all(15),
-      color: Colors.white,
-      child: Column(
-        children: [
-          Container(
-              alignment: Alignment.centerRight,
-              child: Row(
-                children: [
-                  FilledButton.tonal(
-                    child: const Text("edit"),
-                    onPressed: () {
-                    },
-                  ),
-                  Expanded(
-                    child: Container(),
-                  ),
-                  FilledButton.tonal(
-                    child: const Icon(
-                      Icons.edit_calendar,
-                    ),
-                    onPressed: () async {
-                      _showSimpleModalDialog(context);
-                    },
-                  )
-                ],
-              )),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(7, 0, 7, 0),
-            child: Row(
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            Row(
               children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 15, 0, 7),
-                  child: Text(
-                    "Messages",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-                  ),
-                )
+                const Text(
+                  "Edit",
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 127, 125, 230),
+                      fontWeight: FontWeight.w600,
+                      fontFamily: "Sf"),
+                ),
+                const Spacer(),
+                const Text(
+                  "Messages",
+                  style:
+                      TextStyle(fontWeight: FontWeight.w700, fontFamily: "Sf"),
+                ),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {
+                    _showSimpleModalDialog(context);
+                  },
+                  icon: const Icon(CupertinoIcons.square,
+                      color: Color.fromARGB(255, 127, 125, 230)),
+                ),
               ],
             ),
-          ),
-          Padding(
-              padding: const EdgeInsets.fromLTRB(5, 10, 5, 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child: Container(
-                  height: 50,
-                  color: const Color(0xffd5ebcf),
-                  child: Center(
-                    child: Row(
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.all(5),
+                    width: 80,
+                    child: Column(
                       children: [
-                        FilledButton.tonal(
-                          onPressed: () {},
-                          child: const Icon(Icons.search),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(99),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black
+                                    .withOpacity(0.2), // Couleur de l'ombre
+                                offset: const Offset(3, 3),
+                                blurRadius: 10, // Flou de l'ombre
+                                spreadRadius: 5, // Étalement de l'ombre
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(99),
+                            child: Image.network(
+                              "https://lh3.googleusercontent.com/0k6NmC-ScqMVwBsPbChlO660hn3QwrO4QC4J6akBc4dh_hriqDdAAG7mrTMNE7ab_wWnpJyH6dnwRYMAt23TNuDFwQ",
+                              fit: BoxFit.fill,
+                            ),
+                          ),
                         ),
-                        const Spacer(),
-                        FilledButton.tonal(
-                          onPressed: () {},
-                          child: const Icon(Icons.keyboard_voice_rounded),
-                        ),
+                        const Text(
+                          "Priam",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: "Sf",
+                          ),
+                        )
                       ],
                     ),
                   ),
-                ),
-              )),
-          Expanded(
-              child: ListView.builder(
-            itemCount: numberofgroupes,
-            itemBuilder: (context, index) {
-              if (namegroupes.isEmpty && descrgroupes.isEmpty) {
-                return Center(
-                  child: CupertinoActivityIndicator(),
-                );
-              } else {
-                return Column(
-                  children: [
-                    CupertinoListTile(
-                      
-                      leading: ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: Image.network(
-                            "https://dub06pap001files.storage.live.com/y4mcC2WwcFDlfFyTreLvoRsh7v2UX84U49jXgttwaxeYVGwRNVToKysA_etSuJVvShu8TsEqA9tnMm-DMsfmF2cgQCAGvX48fXN9okClUWhCboCO5OWz3uLYuqmbnxCcqo89QtE98-M1sRABQ7p37cHG7ADhhbrUuuuUtfiAGvThPgDgvlTcjluKviREXWKMRi9?width=1000&height=1000&cropmode=none"),
-                      ),
-                      title: Text(namegroupes[index]),
-                      subtitle: Text(descrgroupes[index]),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.arrow_forward_ios, size: 15),
-                        onPressed: () {
-                          print(index);
-                          Navigator.push(context, MaterialPageRoute<void>(
-                              builder: (BuildContext context) {
-                            return Chat(
-                              mode: 1,
-                              index: index,
-                            );
-                          }));
-                        },
-                      ),
+                  Container(
+                    margin: const EdgeInsets.all(5),
+                    width: 80,
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(99),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black
+                                    .withOpacity(0.2), // Couleur de l'ombre
+                                offset: const Offset(3, 3),
+                                blurRadius: 10, // Flou de l'ombre
+                                spreadRadius: 5, // Étalement de l'ombre
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(99),
+                            child: Image.network(
+                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJe_s3yBHzcnWIRt_sUJ07S7a8L1KiDi-0Ag&usqp=CAU",
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        const Text(
+                          "Jessica",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: "Sf",
+                          ),
+                        )
+                      ],
                     ),
-                    const Divider()
-                  ],
-                );
-              }
-            },
-          ))
-        ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.all(5),
+                    width: 80,
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(99),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black
+                                    .withOpacity(0.2), // Couleur de l'ombre
+                                offset: const Offset(3, 3),
+                                blurRadius: 10, // Flou de l'ombre
+                                spreadRadius: 5, // Étalement de l'ombre
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(99),
+                            child: Image.network(
+                              "http://s3.amazonaws.com/brt.org/tim-cook-3.png",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const Text(
+                          "Apple",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: "Sf",
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: numberofgroupes,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(left: 65),
+                        height: 1,
+                        color: const Color.fromARGB(255, 212, 212, 218),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(10, 5, 0, 0),
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(99),
+                              child: Image.asset(
+                                "images/sundae.jpeg",
+                                width: 50,
+                                height: 50,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    namegroupes[index],
+                                    style: TextStyle(
+                                        fontFamily: "Sf",
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 15),
+                                  ),
+                                  Text(
+                                    descrgroupes[index],
+                                    style: TextStyle(
+                                        fontFamily: "Sf",
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Color.fromARGB(255, 149, 149, 155),
+                                        fontSize: 15),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Spacer(),
+                            IconButton(
+                              icon: const Icon(CupertinoIcons.arrow_right),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          Chat(mode: 1, index: index)),
+                                );
+                              },
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  );
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -190,7 +303,7 @@ _showSimpleModalDialog(context) {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
           child: Container(
-            constraints: const BoxConstraints(maxHeight: 350),
+            constraints: const BoxConstraints(maxHeight: 350, maxWidth: 300),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -216,7 +329,7 @@ _showSimpleModalDialog(context) {
                         borderRadius: BorderRadius.circular(20),
                         borderSide: const BorderSide(
                           width: 1,
-                          color: Color.fromARGB(255, 166, 188, 160),
+                          color: Color.fromARGB(255, 255, 255, 255),
                         ),
                       ),
                     ),
@@ -277,11 +390,8 @@ Future<void> createagroupe(name) async {
     "$groupe": {
       "name": namegroupe,
       "description": descriptiongroupe,
-      "messages" : {
-        0 : {
-          "userid" : 0,
-          "name" : "Weclome to $name"
-        }
+      "messages": {
+        0: {"userid": 0, "name": "Weclome to $name"}
       }
     }
   });

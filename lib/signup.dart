@@ -1,156 +1,20 @@
-// ignore_for_file: prefer_typing_uninitialized_variables, depend_on_referenced_packages, non_constant_identifier_names
-
 import 'dart:math';
 
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gradiantbutton/gradiantbutton.dart';
-import 'package:onechatai/signup.dart';
-import 'navbar.dart';
-import 'firebase_options.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:onechatai/main.dart';
 
-//Launch IOS Simulator 
-
-var _size = true;
-var _position = false;
-var hello = "hello world";
-
-GoogleSignIn _googleSignIn = GoogleSignIn(
-  scopes: [
-    'email',
-    'https://www.googleapis.com/auth/contacts.readonly',
-  ],
-);
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
-  FirebaseAuth.instance.authStateChanges().listen((User? user) {
-    if (user == null) {
-      if (kDebugMode) {
-        print('User is currently signed out!');
-      }
-    } else {
-      if (kDebugMode) {
-        print('User is signed in!');
-      }
-    }
-  });
-
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Sign_up extends StatefulWidget {
+  const Sign_up({super.key});
 
   @override
-  _MyAppState createState() => _MyAppState();
+  State<Sign_up> createState() => _Sign_upState();
 }
 
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    Future<void> positionapp() async {
-      Future.delayed(const Duration(seconds: 4));
-      setState(() {
-        _position = true;
-      });
-      print("position is $_position");
-    }
-
-    positionapp();
-    print(_position ? 100.0 : 0);
-
-    return MaterialApp(
-      theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color.fromARGB(255, 165, 167, 249)),
-          useMaterial3: true),
-      title: 'onechat',
-      home: Scaffold(
-        body: StreamBuilder<User?>(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return const Navbar();
-            } else {
-              return Container(
-                  color: CupertinoColors.black,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Container(),
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Container(),
-                          ),
-                          const Text(
-                            "Welcome to Onechat",
-                            style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w500,
-                                color: CupertinoColors.white),
-                          ),
-                          const Text(
-                            " security",
-                            style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w500,
-                                color: CupertinoColors.systemRed),
-                          ),
-                          Image.network(
-                            "https://dub06pap001files.storage.live.com/y4mXowvq_Ps7sXUunKic7LS7YyBBNQailr3Z7OkKNpxi-RVDZbq33OeJI5gnlVNLICH_OGlI6hUp-GboD0WUcjPNGMoZ-iLY8r8xgR-IBO0N-Qf66Zle-0sb-e6VwMQHUmHoV5Jmfm00eSVB3hAb-IeS6SJgtsY83UkcfLSQiKZhphxhgiyjb8XmcWXanw9un77?width=500&height=500&cropmode=none",
-                            scale: 10,
-                          ),
-                          Expanded(
-                            child: Container(),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
-                        child: CupertinoButton.filled(
-                          child: const Text("continue"),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Login()),
-                            );
-                          },
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(),
-                      ),
-                    ],
-                  ));
-            }
-          },
-        ),
-      ),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
-
-  @override
-  _LoginState createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
+class _Sign_upState extends State<Sign_up> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   @override
@@ -159,7 +23,6 @@ class _LoginState extends State<Login> {
     passwordcontroller.dispose();
     super.dispose();
   }
-
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
@@ -183,7 +46,7 @@ class _LoginState extends State<Login> {
                   child: Container(
                     alignment: Alignment.centerLeft,
                     child: const Text(
-                      "Login",
+                      "Sign Up",
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
                     ),
@@ -194,7 +57,7 @@ class _LoginState extends State<Login> {
                   child: Container(
                     alignment: Alignment.centerLeft,
                     child: const Text(
-                      "Please sign in to continue",
+                      "Please sign up to continue",
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
@@ -282,7 +145,7 @@ class _LoginState extends State<Login> {
                                       ],
                                     ),
                                     onPressed: () {
-                                      SignIn();
+                                      SignUp();
                                       // Navigator.push(
                                       //   context,
                                       //   MaterialPageRoute(
@@ -297,7 +160,7 @@ class _LoginState extends State<Login> {
                                           child: Container(),
                                         ),
                                         const Text(
-                                          'Login',
+                                          'Sign up',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600),
@@ -336,7 +199,6 @@ class _LoginState extends State<Login> {
                                             backgroundColor:
                                                 CupertinoColors.systemGrey6),
                                         onPressed: () {
-                                          _handleSignIn();
                                         },
                                         child: Image.network(
                                             "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"),
@@ -417,7 +279,7 @@ class _LoginState extends State<Login> {
                         child: Container(),
                       ),
                       const Text(
-                        "don't have a account ?",
+                        "you have a account ?",
                         style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
@@ -428,7 +290,7 @@ class _LoginState extends State<Login> {
                       ),
                       TextButton(
                         child: const Text(
-                          "Sign up",
+                          "Sign in",
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
@@ -437,10 +299,11 @@ class _LoginState extends State<Login> {
                         ),
                         onPressed: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Sign_up()),
-                            );
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Login()
+                          ),
+                    );
                         },
                       ),
                       Expanded(
@@ -455,38 +318,15 @@ class _LoginState extends State<Login> {
         ),
       )),
     );
+    
   }
-
-  Future<void> SignIn() async {
-    print(emailcontroller.text.trim());
-    FirebaseAuth.instance.signInWithEmailAndPassword(
+  Future<void> SignUp() async {
+    if (kDebugMode) {
+      print(emailcontroller.text.trim());
+    }
+    FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailcontroller.text.trim(),
         password: passwordcontroller.text.trim());
   }
-
-  Future<UserCredential> signInWithGoogle() async {
-    // Trigger the authentication flow
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-    // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
-
-    // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-
-    // Once signed in, return the UserCredential
-    return await FirebaseAuth.instance.signInWithCredential(credential);
-  }
-
-  Future<void> _handleSignIn() async {
-    try {
-      await _googleSignIn.signIn();
-    } catch (error) {
-      print(error);
-    }
-  }
 }
+

@@ -18,16 +18,7 @@ class _NavbarState extends State<Navbar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 83, 150, 85),
-          title: const Center(
-            child: Text(
-              "Onechat",
-              style: TextStyle(
-                color: Colors.black,
-              ),
-            ),
-          )),
+      backgroundColor: Colors.white,
       body: Center(
         child: CupertinoTabScaffold(
           tabBar: CupertinoTabBar(
